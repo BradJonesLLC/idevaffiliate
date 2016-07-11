@@ -1,0 +1,5 @@
+services:
+  idevaffiliate.remote:
+    class: Drupal\idevaffiliate\IDevAffiliateRemoteService
+    arguments: []
+

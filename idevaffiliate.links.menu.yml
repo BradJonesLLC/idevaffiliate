@@ -1,0 +1,5 @@
+idevaffiliate.idevaffiliate_config_form:
+  title: 'iDevAffiliate Configuration'
+  route_name: idevaffiliate.idevaffiliate_config_form
+  description: 'Configuration for the iDevAffiliate integration'
+  parent: system.admin_config_services

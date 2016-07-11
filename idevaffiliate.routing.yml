@@ -1,0 +1,11 @@
+
+idevaffiliate.idevaffiliate_config_form:
+  path: '/admin/config/idevaffiliate/config'
+  defaults:
+    _form: '\Drupal\idevaffiliate\Form\ConfigForm'
+    _title: 'iDevAffiliate Integration Configuration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
