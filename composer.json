@@ -1,0 +1,11 @@
+{
+  "name": "bradjonesllc/idevaffiliate",
+  "type": "drupal-module",
+  "description": "Integration with iDevAffiliate",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/BradJonesLLC/idevaffiliate",
+  "minimum-stability": "dev",
+  "require": { }
+}
+
