@@ -1,5 +1,7 @@
 services:
   idevaffiliate.remote:
     class: Drupal\idevaffiliate\IDevAffiliateRemoteService
-    arguments: []
-
+    arguments: ['@config.factory', '@logger.channel.idevaffiliate']
+  logger.channel.idevaffiliate:
+    parent: logger.channel_base
+    arguments: [idevaffiliate]

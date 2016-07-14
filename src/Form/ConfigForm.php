@@ -41,6 +41,13 @@ class ConfigForm extends ConfigFormBase {
       '#placeholder' => 'https://idevaffiliate.yournetwork',
       '#required' => true,
     ];
+    $form['secret'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('sale.php secret key'),
+      '#default_value' => $config->get('secret'),
+      '#description' => $this->t('Secret key to protect <code>sale.php</code>. Obtain at <code>General Settings &gt; Advanced Fraud Protection</code>.'),
+      '#required' => true,
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -61,7 +68,8 @@ class ConfigForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $this->config('idevaffiliate.config')
-      ->set('endpoint', $form_state->getValue('endpoint'))
+      ->set('endpoint', trim($form_state->getValue('endpoint'), '/'))
+      ->set('secret', $form_state->getValue('secret'))
       ->save();
   }
 
