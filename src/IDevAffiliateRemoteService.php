@@ -68,6 +68,8 @@ class IDevAffiliateRemoteService implements IDevAffiliateRemoteServiceInterface 
   }
 
   /**
+   * Send a command to the iDevAffiliate endpoint.
+   *
    * @param array $query
    * @param string $command
    * @return bool
@@ -75,7 +77,7 @@ class IDevAffiliateRemoteService implements IDevAffiliateRemoteServiceInterface 
   protected function send(array $query, string $command = self::COMMAND_SALE) {
     $query += ['profile' => self::PROFILE_ID];
     $client = new Client();
-    $url = Url::fromUri($this->endpoint . $command, $query);
+    $url = Url::fromUri($this->endpoint . $command, ['query' => $query])->toString();
     try {
       $response = $client->get($url);
       if ($response->getStatusCode() !== 200) {
@@ -83,7 +85,7 @@ class IDevAffiliateRemoteService implements IDevAffiliateRemoteServiceInterface 
       }
     }
     catch (\Throwable $e) {
-      $this->loggerChannel->error($e->getCode() . ': ' . $e->getMessage());
+      $this->loggerChannel->error($e->getMessage());
       return false;
     }
     return true;
